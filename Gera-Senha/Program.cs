@@ -7,7 +7,7 @@ class Program
     static void Main()
     {
         string salvarSenha = " ";
-        CriarSenha(ref salvarSenha);
+        
     }
     public static void CriarSenha(ref string salvarSenha)
     {
@@ -130,6 +130,15 @@ class Program
                 Thread.Sleep(1000);
                 Console.ResetColor();
             goto Return2;
+        }
+    }
+    public static void ReaverSenhas()
+    {
+        string[] senhas = File.ReadAllLines("Senhas-Salvas.txt");
+        Console.WriteLine("Suas senhas salvas são: ");
+        foreach(var linha in senhas)
+        {
+            Console.WriteLine(linha);
         }
     }
 }
