@@ -104,4 +104,32 @@ class Program
         Console.Write($"Sua nova senha e: {salvarSenha}");
         Console.ResetColor();
     }
+    public static void SalvarSenhas(ref string salvarSenha)
+    {
+        List<string> Senhas = new List<string>{};
+        Return1:
+        Console.Clear();
+        Console.Write("Adicione um rotulo para sua senha (Exemplo: Senha do bando): ");
+        String Rotulo = Console.ReadLine()??" ";
+        Return2:
+        Console.Clear();
+        Console.Write($"Deseja confirmar o rotulo: {Rotulo} (Sim) (Não) ");
+        string confirmarRotulo = Console.ReadLine()?.ToLower()??" ";
+        switch(confirmarRotulo)
+        {
+            case "sim":
+                string senha = Rotulo + " - " + salvarSenha;
+                Senhas.Add(senha);
+                File.WriteAllLines("Senhas-Salvas.txt", Senhas);
+            break;
+            case "não":
+            goto Return1;
+            default:
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Escreva apenas Sim ou Não");
+                Thread.Sleep(1000);
+                Console.ResetColor();
+            goto Return2;
+        }
+    }
 }
