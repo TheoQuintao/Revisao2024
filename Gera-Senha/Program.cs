@@ -2,11 +2,41 @@
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.IO;
+using System.Runtime.InteropServices;
 class Program
 {
     static void Main()
     {
         string salvarSenha = " ";
+        Return1:
+        Console.WriteLine("Bem vindo ao Gerador de senhas \n\n Oque deseja fazer? \n\n (1) Criar uma senha aleatória \n (2) Ver lista de senhas salvas \n (3) Sair");
+        if(!int.TryParse(Console.ReadLine(), out int menu))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Escreva apenas 1 ou 2");
+            Thread.Sleep(1000);
+            Console.ResetColor();
+            goto Return1;
+        }
+        switch(menu)
+        {
+            case 1:
+                CriarSenha(ref salvarSenha);
+                SalvarSenhas(ref salvarSenha);
+            break;
+            case 2:
+                ReaverSenhas();
+            break;
+            case 3:
+            return;
+            default:
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Escreva apenas 1 ou 2");
+                Thread.Sleep(1000);
+                Console.ResetColor();
+            goto Return1;
+
+        }
         
     }
     public static void CriarSenha(ref string salvarSenha)
@@ -107,6 +137,11 @@ class Program
     public static void SalvarSenhas(ref string salvarSenha)
     {
         List<string> Senhas = new List<string>{};
+        string[] senhas = File.ReadAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt");
+        foreach(var linhas in senhas)
+        {
+            Senhas.Add(linhas);
+        }
         Return1:
         Console.Clear();
         Console.Write("Adicione um rotulo para sua senha (Exemplo: Senha do bando): ");
@@ -120,7 +155,7 @@ class Program
             case "sim":
                 string senha = Rotulo + " - " + salvarSenha;
                 Senhas.Add(senha);
-                File.WriteAllLines("Senhas-Salvas.txt", Senhas);
+                File.AppendAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt", Senhas);
             break;
             case "não":
             goto Return1;
@@ -134,7 +169,7 @@ class Program
     }
     public static void ReaverSenhas()
     {
-        string[] senhas = File.ReadAllLines("Senhas-Salvas.txt");
+        string[] senhas = File.ReadAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt");
         Console.WriteLine("Suas senhas salvas são: ");
         foreach(var linha in senhas)
         {
