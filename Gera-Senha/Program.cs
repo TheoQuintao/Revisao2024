@@ -7,9 +7,10 @@ class Program
 {
     static void Main()
     {
+        Console.Clear();
         string salvarSenha = " ";
         Return1:
-        Console.WriteLine("Bem vindo ao Gerador de senhas \n\n Oque deseja fazer? \n\n (1) Criar uma senha aleatória \n (2) Ver lista de senhas salvas \n (3) Sair");
+        Console.WriteLine("Bem vindo ao Gerador de senhas \n\nOque deseja fazer? \n\n(1) Criar uma senha aleatória \n(2) Ver lista de senhas salvas \n(3) Sair");
         if(!int.TryParse(Console.ReadLine(), out int menu))
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -37,7 +38,7 @@ class Program
             goto Return1;
 
         }
-        
+        goto Return1;
     }
     public static void CriarSenha(ref string salvarSenha)
     {
@@ -137,7 +138,7 @@ class Program
     public static void SalvarSenhas(ref string salvarSenha)
     {
         List<string> Senhas = new List<string>{};
-        string[] senhas = File.ReadAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt");
+        string[] senhas = File.ReadAllLines("senhas.txt");
         foreach(var linhas in senhas)
         {
             Senhas.Add(linhas);
@@ -155,7 +156,7 @@ class Program
             case "sim":
                 string senha = Rotulo + " - " + salvarSenha;
                 Senhas.Add(senha);
-                File.AppendAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt", Senhas);
+                File.AppendAllLines("senhas.txt", Senhas);
             break;
             case "não":
             goto Return1;
@@ -169,7 +170,7 @@ class Program
     }
     public static void ReaverSenhas()
     {
-        string[] senhas = File.ReadAllLines("C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Senhas-Salvas.txt");
+        string[] senhas = File.ReadAllLines("senhas.txt");
         Console.WriteLine("Suas senhas salvas são: ");
         foreach(var linha in senhas)
         {
