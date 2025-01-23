@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 class Program
 {
     static void Main()
-    {
+    {   string salvarSenha = " ";
         Console.Clear();
-        string salvarSenha = " ";
+        
         Return1:
         Console.WriteLine("Bem vindo ao Gerador de senhas \n\nOque deseja fazer? \n\n(1) Criar uma senha aleatória \n(2) Ver lista de senhas salvas \n(3) Sair");
         if(!int.TryParse(Console.ReadLine(), out int menu))
@@ -145,7 +145,7 @@ class Program
         }
         Return1:
         Console.Clear();
-        Console.Write("Adicione um rotulo para sua senha (Exemplo: Senha do bando): ");
+        Console.Write("Adicione um rotulo para sua senha (Exemplo: Senha do banco): ");
         String Rotulo = Console.ReadLine()??" ";
         Return2:
         Console.Clear();
@@ -156,7 +156,7 @@ class Program
             case "sim":
                 string senha = Rotulo + " - " + salvarSenha;
                 Senhas.Add(senha);
-                File.AppendAllLines("senhas.txt", Senhas);
+                File.WriteAllLines("senhas.txt", Senhas);
             break;
             case "não":
             goto Return1;
@@ -171,7 +171,7 @@ class Program
     public static void ReaverSenhas()
     {
         string[] senhas = File.ReadAllLines("senhas.txt");
-        Console.WriteLine("Suas senhas salvas são: ");
+        Console.WriteLine("\nSuas senhas salvas são: \n");
         foreach(var linha in senhas)
         {
             Console.WriteLine(linha);

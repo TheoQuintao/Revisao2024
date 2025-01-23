@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj": {}
+    "D:\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj": {
+    "D:\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj",
+        "projectUniqueName": "D:\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj",
         "projectName": "Revisao2024",
-        "projectPath": "C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj",
-        "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alunos\\OneDrive\\Documentos\\GitTheo\\Revisao2024\\Gera-Senha\\obj\\",
+        "projectPath": "D:\\GitTheo\\Revisao2024\\Gera-Senha\\Revisao2024.csproj",
+        "packagesPath": "C:\\Users\\theoo\\.nuget\\packages\\",
+        "outputPath": "D:\\GitTheo\\Revisao2024\\Gera-Senha\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\theoo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
